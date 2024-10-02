@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+
+.todo-status-group {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: 36%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.group-title {
+  font-size: 1.2em;
+  color: #444;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.status-list {
+  list-style-type: none;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.status-item {
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 3px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Status Colors */
+.status-item.done {
+  background-color: #d4edda;
+  color: #155724;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.status-item.not-done {
+  background-color: #f8d7da;
+  color: #721c24;
 }
