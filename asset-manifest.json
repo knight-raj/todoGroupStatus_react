@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/knight-raj/todoGroupStatus_react.git/static/css/main.dc5d8039.css",
+    "main.js": "/knight-raj/todoGroupStatus_react.git/static/js/main.de066bd2.js",
+    "index.html": "/knight-raj/todoGroupStatus_react.git/index.html",
+    "main.dc5d8039.css.map": "/knight-raj/todoGroupStatus_react.git/static/css/main.dc5d8039.css.map",
+    "main.de066bd2.js.map": "/knight-raj/todoGroupStatus_react.git/static/js/main.de066bd2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc5d8039.css",
+    "static/js/main.de066bd2.js"
+  ]
+}
