@@ -2,9 +2,10 @@ import './GroupFrom.css';
 
 import React from 'react';
 
-const GroupForm = ({ group, index, onChange, onDelete }) => {
+const GroupForm = ({ group, index, onChange, onDelete, groupName }) => {
   return (
-    <div>
+    <div className='group-form'>
+       <h3 className='group-label'>{groupName}</h3> 
       <input
         type="number"
         value={group.from}
@@ -22,7 +23,9 @@ const GroupForm = ({ group, index, onChange, onDelete }) => {
         min={group.from} // Ensure "to" is always greater than "from"
         max="10"
       />
-      <button onClick={onDelete}>Delete</button>
+      <button 
+      onClick={onDelete}
+      >Delete</button>
     </div>
   );
 };

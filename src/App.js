@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-import GroupForm from './components/GroupFrom';
-import TodoStatus from './components/TodoStatus';
-import { fetchTodoStatus } from './service/todoApi';
-import { validateGroups } from './utils/validateGroups';
-import './App.css';
-
-
-
+import React, { useState } from "react";
+import GroupForm from "./components/GroupFrom";
+import TodoStatus from "./components/TodoStatus";
+import { fetchTodoStatus } from "./service/todoApi";
+import { validateGroups } from "./utils/validateGroups";
+import "./App.css";
 
 const App = () => {
- 
   const [groups, setGroups] = useState([{ from: 1, to: 2 }]);
   const [statuses, setStatuses] = useState({});
 
-  
   const addGroup = () => {
     const lastGroup = groups[groups.length - 1];
     const newFrom = lastGroup.to + 1;
@@ -22,18 +17,31 @@ const App = () => {
       return;
     }
 
-    const newTo = Math.min(newFrom + 1, 10); 
+    const newTo = Math.min(newFrom + 1, 10);
     setGroups([...groups, { from: newFrom, to: newTo }]);
   };
 
   const deleteGroup = (index) => {
-    if (groups.length === 1) {
-      return; 
+    
+    if (index === 0) {
+      alert("You cannot delete the first group.");
+
+      return;
     }
-    const newGroups = [...groups];
-    newGroups.splice(index, 1);
-    setGroups(newGroups);
+  
+    if (index < groups.length - 1) {
+      alert("You can only delete the last group.");
+      console.log("hi")
+      return;
+    }
+  
+    if (index === groups.length - 1) {
+      const newGroups = [...groups];
+      newGroups.splice(index, 1);
+      setGroups(newGroups);
+    }
   };
+  
 
   const handleGroupChange = (index, field, value) => {
     const newGroups = [...groups];
@@ -46,7 +54,7 @@ const App = () => {
       const status = await fetchTodoStatus(groups);
       setStatuses(status);
     } else {
-      alert('Invalid group configuration!');
+      alert("Invalid group configuration!");
     }
   };
 
@@ -60,10 +68,16 @@ const App = () => {
           index={index}
           onChange={handleGroupChange}
           onDelete={() => deleteGroup(index)}
+          isLastGroup={index === groups.length - 1}
+          groupName={`Group ${index + 1}`}
         />
       ))}
-      <button className="add-group-button" onClick={addGroup}>Add Group</button>
-      <button className="show-status-button" onClick={showStatus}>Show Status</button>
+      <button className="add-group-button" onClick={addGroup}>
+        Add Group
+      </button>
+      <button className="show-status-button" onClick={showStatus}>
+        Show Status
+      </button>
       {Object.keys(statuses).map((group, index) => (
         <TodoStatus key={index} group={group} status={statuses[group]} />
       ))}

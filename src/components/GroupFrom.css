@@ -1,4 +1,8 @@
 /* Styling for input field */
+
+.group-form{
+  display: flex;
+}
 input {
     width: 15%;
     padding: 12px 20px;
@@ -26,3 +30,8 @@ input {
     background-color: #45a049;
   }
   
+  .group-label {
+    width: 80px; /* Adjust this width as needed */
+    font-weight: bold;
+    margin-right: 10px; /* Add some space between the label and inputs */
+  }
